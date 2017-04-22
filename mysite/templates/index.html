@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>My Site</title>
+        <link href="//db.onlinewebfonts.com/c/ae6d00c7a3083947ca827b70ff88ee2b?family=Blackadder+ITC" rel="stylesheet" type="text/css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/shortcut icon.png'%}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/my-slider.css' %}">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="slayder_1">
+            <div class="block">
+                <img src="{% static 'img/user.jpg'%}" title="Pavlo Zaluskyy" class="userFoto">
+                <h1 class="name"><b>Pavlo Zaluskyy</b></h1>
+                <p class="activity">STUDENT, WEB DEVELOPMENT, SOFTWARE DEVELOPMENT</p>
+                <ul class="social_button">
+                    <li><a href="https://vk.com/id154832768"><img src="{% static 'img/icon_vk1.png'%}" title="Vkontacte" id="vk" class="top_icon"></a></li>
+                    <li><a href="https://plus.google.com/u/0/108829735717732288087"><img src="{% static 'img/icon_gm1.png'%}" id="gm" title="Gmail" class="top_icon"></a></li>
+                    <li><a href="https://www.facebook.com/pavlo.zaluskyy"><img src="{% static 'img/icon_fb1.png'%}" id="fb" title="Facebook" class="top_icon"></a></li>
+                    <li><a href="https://github.com/PavloZaluskyy"><img src="{% static 'img/icon_gh1.png'%}" id="gh" title="GitHub" class="top_icon"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="slayder_2">
+            <div class="block2">
+                <h1 class="my_works"><b>About:</b></h1>
+                <p class="about_me">Hi, my name is Pavlo, i am a student i am 18 years old. I was born on 2 July 1998. I'm from the city of Lviv, Ukraine. I am engaged in years of web development, and software provided with.</p>
+                <p class="about_me">Education: higher education, private higher education institution "European University" Computer Science</p>
+                <p class="about_me">Languages: Russian, Ukrainian, English- medium level work with technical documentation</p>
+                <p class="about_me">knowledge of programs: work with graphic applications (Corel Draw), html-editors (Notepad ++, SublineText, Athom) Java environment (Eclipce), using a local server (Denwer).</p>
+            </div>
+        </div>
+        <div class="slayder_3">
+            <div class="block3">
+                <h1 class="my_works"><b>My Works:</b></h1>
+                <div class="ism-slider" data-play_type="once" data-interval="3000" id="my-slider">
+                    <ol>
+                         
+                         <li><a href="http://testqwe.zzz.com.ua/">
+                             <img src="{% static 'img/slides/_u/1491233764815_501364.png' %}">
+                             </a>
+                         </li>
+                         
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slayder_4">
+            <div class="block4">
+                <h1 class="my_works"><b>Contacts:</b></h1>
+                <p class="about_me">Skype - pavlo.zaluskyy1</p>
+                <p class="about_me">Phone - 0934341954</p>
+                <p class="about_me">E-Mail - pavlozaluskiy@gmail.com</p>
+            </div>
+        </div>
+        <div class="slayder_5">
+            <div class="block5">
+            <h1 class="my_works"><b>Leave your comment:</b></h1>
+            <form action="" method="post" class="text-center form-comment">{% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <input name="{{ form.name.name }}" placeholder="Your name..." class="form-control" type="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <textarea name="{{ form.description.name }}" class="form-control" placeholder="Description" rows="4"></textarea>
+                </div>
+                <div id="success"></div>
+                <button type="submit" class="btn btn-default">Send Message</button>
+              </form>
+            </div>
+        </div>
+
+          <div class="slayder_6">
+          <h1 class="my_works" style="text-align: center;">Comments:</h1>
+            
+            
+                
+                      {% for comment in comments %}
+                         <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12 col-sm-12 block6">   
+                                <p class="comment_name"><strong>{{ comment.name }}</strong></p>
+                                <p class="comment_descripin">{{ comment.description  }}</p>
+                             </div>
+                        {% endfor %}
+                  
+           
+        </div>
+        <script type="text/javascript" src="{% static 'js/jquery-3.2.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.parallax-1.1.3.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.localscroll-1.2.7-min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.scrollTo-1.4.2-min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/slayder.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    </body>
+
+</html>
